@@ -4,8 +4,6 @@ import {
   StyleSheet,
   View,
   Text,
-  SectionList,
-  SafeAreaView,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
