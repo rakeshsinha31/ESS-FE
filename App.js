@@ -130,11 +130,9 @@ const App = () => {
             <Drawer.Screen name="SupportScreen" component={SupportScreen} />
             <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
             <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
-            <Stack.Screen
-              name="HomeScreen"
-              component={HomeScreen}
-              userInfo={{ username: loginState.userName }}
-            />
+            <Stack.Screen name="HomeScreen">
+              {(props) => <HomeScreen {...props} />}
+            </Stack.Screen>
           </Drawer.Navigator>
         ) : (
           <RootStackScreen />

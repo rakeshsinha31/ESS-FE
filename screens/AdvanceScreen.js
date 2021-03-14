@@ -3,18 +3,16 @@ import {
   Alert,
   View,
   Text,
-  Button,
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  NativeModules,
 } from "react-native";
 
 import RadioGroup from "react-native-radio-buttons-group";
 import Slider from "@react-native-community/slider";
 
 import * as Animatable from "react-native-animatable";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Feather from "react-native-vector-icons/Feather";
 
 function AdvanceScreen({ navigation }) {
   let VALID = true;
@@ -154,8 +152,10 @@ function AdvanceScreen({ navigation }) {
     if (!VALID) {
       alert("Please correct the errors and apply again");
       return false;
-    }
-    if (data.amount.trim().length == 0 || data.tenure.trim().length == 0) {
+    } else if (
+      data.amount.trim().length == 0 ||
+      data.tenure.trim().length == 0
+    ) {
       VALID = false;
       alert("Please enter a valid values for Tenure and Amount");
       return false;

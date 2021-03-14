@@ -14,7 +14,7 @@ import LeaveScreen from "./LeaveSceen";
 import GatePassScreen from "./GatePassScreen";
 import AttendanceScreen from "./AttendanceScreen";
 import ShiftScreen from "./ShiftScreen";
-import SalaryScreen from "./SalaryScreen";
+// import SalaryScreen from "./SalaryScreen";
 import ArrearsScreen from "./ArrearsScreen";
 import ReimbursementScreen from "./ReimbursementScreen";
 import AdvanceScreen from "./AdvanceScreen";
@@ -82,7 +82,7 @@ const MainTabScreen = (props) => (
 
 export default MainTabScreen;
 
-const HomeStackScreen = ({ navigation }, props) => (
+const HomeStackScreen = ({ navigation }) => (
   <HomeStack.Navigator
     screenOptions={{
       headerStyle: {
@@ -97,6 +97,7 @@ const HomeStackScreen = ({ navigation }, props) => (
     <HomeStack.Screen
       name="Home"
       component={HomeScreen}
+      getId={({ props }) => props.userInfo}
       options={{
         title: "Dashboard",
         headerLeft: () => (
@@ -113,7 +114,6 @@ const HomeStackScreen = ({ navigation }, props) => (
     <HomeStack.Screen name="GatePass" component={GatePassScreen} />
     <HomeStack.Screen name="Attendance" component={AttendanceScreen} />
     <HomeStack.Screen name="Shift" component={ShiftScreen} />
-    <HomeStack.Screen name="Salary" component={SalaryScreen} />
     <HomeStack.Screen name="Arrears" component={ArrearsScreen} />
     <HomeStack.Screen name="Reimbursement" component={ReimbursementScreen} />
     <HomeStack.Screen name="Advance" component={AdvanceScreen} />

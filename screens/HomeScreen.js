@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -9,11 +9,19 @@ import {
 import { useTheme } from "@react-navigation/native";
 import MaterialIconsIcon from "react-native-vector-icons/MaterialIcons";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const HomeScreen = ({ navigation }) => {
   const theme = useTheme();
 
-  console.log(navigation);
+  const ff = async () => {
+    console.log(await AsyncStorage.getItem("userToken"));
+  };
+
+  useEffect(() => {
+    ff();
+  });
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle={theme.dark ? "light-content" : "dark-content"} />
